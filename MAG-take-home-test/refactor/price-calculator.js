@@ -10,13 +10,6 @@ const checkUserType = userType => {
   }
 }
 
-const publishedToday = publishedDate => {
-  if (publishedDate.toDateString() == new Date().toDateString())
-  {
-    return 10;
-  }
-}
-
 const productTypePrice = productType => {
   if (productType === 0) {
     return 25;
@@ -25,23 +18,22 @@ const productTypePrice = productType => {
 }
 };
 
+const publishedToday = publishedDate => {
+  if (publishedDate.toDateString() == new Date().toDateString())
+  {
+    return 10;
+  }
+}
+
 const calculatePrice = (userType, productType, price, publishedDate) => {
   const userTypeTotal = checkUserType(userType);
   const publishedDateTotal = publishedToday(publishedDate);
   const productTypeTotal = productTypePrice(productType)
-  
+
   const totalPrice = price + productTypeTotal - userTypeTotal - publishedDateTotal;
 
   return totalPrice
 }
-
-
-
-// const calculatePrice = (userType, productType, price, publishedDate) => {
-//   if() {
-//     return price
-//   }
-// }
 
 // var calculatePrice = function(userType, productType, price, publishedDate) {
 //   try {
