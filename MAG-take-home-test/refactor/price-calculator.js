@@ -2,23 +2,38 @@
 // productType, 0 = new product, 1 = old product
 // price, the price of the product
 
-let price = 100;
-const userType = 1;
-const companyRebate = 5;
-const newProductAdd = 25;
-const oldProductAdd = 35;
-const productPublishedRebate = 10;
-
-const checkUserType = (userType, price, companyRebate) => {
-if(userType === 1) {
-  return price - companyRebate;
-} else {
-  return price;
+const checkUserType = userType => {
+  if (userType === 1) {
+    return 5;
+  } else {
+    return 0;
+  }
 }
 
+const publishedToday = publishedDate => {
+  if (publishedDate.toDateString() == new Date().toDateString())
+  {
+    return 10;
+  }
 }
 
-const publishedToday = publishedDate => publishedDate.toDateString() == new Date().toDateString()
+const productTypePrice = productType => {
+  if (productType === 0) {
+    return 25;
+  } else (productType === 1); {
+    return 35;
+}
+};
+
+const calculatePrice = (userType, productType, price, publishedDate) => {
+  const userTypeTotal = checkUserType(userType);
+  const publishedDateTotal = publishedToday(publishedDate);
+  const productTypeTotal = productTypePrice(productType)
+  
+  const totalPrice = price + productTypeTotal - userTypeTotal - publishedDateTotal;
+
+  return totalPrice
+}
 
 
 
