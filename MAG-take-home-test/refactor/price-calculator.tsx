@@ -2,38 +2,45 @@
 // productType, 0 = new product, 1 = old product
 // price, the price of the product
 
-const checkUserType = userType => {
+const checkUserType = (userType: number) => {
   if (userType === 1) {
     return 5;
   } else {
     return 0;
   }
-}
-
-const productTypePrice = productType => {
-  if (productType === 0) {
-    return 25;
-  } else (productType === 1); {
-    return 35;
-}
 };
 
-const publishedToday = publishedDate => {
-  if (publishedDate.toDateString() == new Date().toDateString())
+const productTypePrice = (productType: number) => {
+  if (productType === 0) {
+    return 25;
+  } else productType === 1;
   {
+    return 35;
+  }
+};
+
+const publishedToday = (publishedDate: Date) => {
+  if (publishedDate.toDateString() == new Date().toDateString()) {
     return 10;
   }
-}
+};
 
-const calculatePrice = (userType, productType, price, publishedDate) => {
+const calculatePrice = (
+  userType: number,
+  productType: number,
+  price: number,
+  publishedDate: number
+) => {
   const userTypeTotal = checkUserType(userType);
   const publishedDateTotal = publishedToday(publishedDate);
-  const productTypeTotal = productTypePrice(productType)
+  const productTypeTotal = productTypePrice(productType);
 
-  const totalPrice = price + productTypeTotal - userTypeTotal - publishedDateTotal;
+  const totalPrice =
+    price + productTypeTotal - userTypeTotal - publishedDateTotal;
 
-  return totalPrice
-}
+  return totalPrice;
+};
+export default calculatePrice;
 
 // var calculatePrice = function(userType, productType, price, publishedDate) {
 //   try {

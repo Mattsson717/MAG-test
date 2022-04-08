@@ -1,9 +1,7 @@
 import { useState } from 'react';
 import './App.css';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App = () => {
   return (
     <div className='App'>
       <h1>Price Calculator</h1>
@@ -53,6 +51,6 @@ function App() {
       {/* {totalPrice} */}
     </div>
   );
-}
+};
 
 export default App;
