@@ -2,6 +2,11 @@ import { useState } from 'react';
 import './App.css';
 
 const App = () => {
+  const [user, setUser] = useState<string | undefined>('');
+  const [product, setProduct] = useState<string | undefined>('');
+  const [publishedToday, setPublishedToday] = useState<string | undefined>('');
+  const [totalPrice, setTotalPrice] = useState<number | undefined>(0);
+
   return (
     <div className='App'>
       <h1>Price Calculator</h1>
@@ -43,6 +48,11 @@ const App = () => {
         <label>
           Price:
           <input type='number' />
+        </label>
+
+        <label>
+          When is the product published
+          <input type='date' />
         </label>
 
         <input type='submit' />
