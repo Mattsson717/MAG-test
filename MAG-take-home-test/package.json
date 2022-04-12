@@ -9,7 +9,9 @@
   },
   "dependencies": {
     "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react-dom": "^17.0.2",
+    "sass": "^1.50.0",
+    "scss-compile": "^0.1.7"
   },
   "devDependencies": {
     "@types/jest": "^27.4.1",

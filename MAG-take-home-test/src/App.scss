@@ -1,0 +1,50 @@
+:root {
+  --primary: #282c34;
+  --secondary: #ffffff;
+  --tertiary: #3d405b;
+}
+
+body {
+  background-color: var(--primary);
+  color: var(--secondary);
+}
+
+.main {
+  display: flex;
+  background-color: var(--primary);
+  min-height: 100vh;
+  max-width: 50vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  margin: 0 auto;
+  img {
+    height: 40vmin;
+    pointer-events: none;
+  }
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  border: var(--secondary) 2px solid;
+}
+.submitBtn {
+  display: inline-block;
+  border-radius: 4px;
+  background-color: var(--tertiary);
+  border: none;
+  text-align: center;
+  font-size: 17px;
+  padding: 16px;
+  width: 130px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+
+  :hover {
+    transform: scale(1.05);
+  }
+}
