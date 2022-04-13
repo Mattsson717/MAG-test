@@ -140,9 +140,8 @@ const App = () => {
               Check price
             </button>
           </div>
+          <div className='price'>Price: {totalPrice}</div>
         </form>
-
-        <div>Price: {totalPrice}</div>
       </section>
     </section>
   );

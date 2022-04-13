@@ -8,6 +8,7 @@ body {
   background-color: var(--primary);
   color: var(--secondary);
   margin: 0;
+  padding: 50px;
 }
 
 .main {
@@ -130,5 +131,9 @@ body {
 .submitBtn :hover {
   -webkit-transform: scale(1.05);
           transform: scale(1.05);
+}
+
+.price {
+  margin-top: 5px;
 }
 /*# sourceMappingURL=App.css.map */
