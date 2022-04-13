@@ -1,3 +1,5 @@
+import priceCalculator from '../price-calculator';
+
 describe('priceCalculator', function () {
   describe('private user', function () {
     it('should calculate new product published today correctly', function () {

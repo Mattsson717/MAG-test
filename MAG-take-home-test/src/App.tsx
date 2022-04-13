@@ -1,6 +1,7 @@
 import React, { useState, ChangeEvent } from 'react';
 import './App.scss';
 import Logo from './logo/Logo';
+// import calculatePrice from '../refactor/calculatePrice';
 
 const App = () => {
   const [user, setUser] = useState<string | undefined>('');
@@ -21,6 +22,8 @@ const App = () => {
   // const onChangeHandler = (e: ChangeEvent) => {
   //   const newValue = (e.target as HTMLInputElement).valueAsNumber;
   // };
+
+  // const submit = (e: React.FormEvent<HTMLInputElement>) => e.preventDefault();
 
   const calculatePrice = () => {
     if (user === 'normal' && product === 'new') {
@@ -52,8 +55,8 @@ const App = () => {
       <h1>Price Calculator</h1>
       <section className='calculator'>
         <form onSubmit={(e) => e.preventDefault()}>
-          <div>
-            <label> Select usertype: </label>
+          <div className='selectInput'>
+            <label htmlFor='user'> Select usertype: </label>
             <select
               defaultValue='default'
               onChange={(e) => setUser(e.target.value)}
@@ -72,8 +75,8 @@ const App = () => {
               </option>
             </select>
           </div>
-          <div>
-            <label>
+          <div className='selectInput'>
+            <label htmlFor='productType'>
               Product type:
               <select
                 defaultValue='default'
@@ -103,38 +106,44 @@ const App = () => {
             required
           />
         </label> */}
-          <div>
-            <label>
+          <div className='radioInput'>
+            <label htmlFor='isPublishedToday'>
               Is the product published today?
-              <label htmlFor='yes'>
-                <input
-                  value='yes'
-                  type='radio'
-                  name='isPublishedToday'
-                  onChange={(e) => setPublishedToday(e.target.value)}
-                  id='yes'
-                />
-                yes
-              </label>
-              <label htmlFor='no'>
-                <input
-                  value='no'
-                  type='radio'
-                  name='isPublishedToday'
-                  onChange={(e) => setPublishedToday(e.target.value)}
-                  id='no'
-                />
-                no
-              </label>
             </label>
+            <label htmlFor='yes'>
+              <input
+                value='yes'
+                type='radio'
+                name='isPublishedToday'
+                onChange={(e) => setPublishedToday(e.target.value)}
+                id='yes'
+              />
+              <span>yes</span>
+            </label>
+            <label htmlFor='no'>
+              <input
+                value='no'
+                type='radio'
+                name='isPublishedToday'
+                onChange={(e) => setPublishedToday(e.target.value)}
+                id='no'
+              />
+              <span>no</span>
+            </label>
+          </div>
+          <div className='button'>
+            <button
+              className='submitBtn'
+              type='submit'
+              onClick={calculatePrice}
+            >
+              Check price
+            </button>
           </div>
         </form>
 
         <div>Price: {totalPrice}</div>
       </section>
-      <button className='submitBtn' type='submit' onClick={calculatePrice}>
-        Check price
-      </button>
     </section>
   );
 };

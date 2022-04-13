@@ -7,6 +7,7 @@
 body {
   background-color: var(--primary);
   color: var(--secondary);
+  margin: 0;
 }
 
 .main {
@@ -36,6 +37,11 @@ body {
   pointer-events: none;
 }
 
+.main h1 {
+  margin: 0;
+  text-align: center;
+}
+
 .calculator {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -44,22 +50,81 @@ body {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: var(--secondary) 2px solid;
+}
+
+.calculator form {
+  max-width: 550px;
+  width: 90%;
+  background-color: var(--secondary);
+  color: var(--primary);
+  margin: 6vh auto 0 auto;
+  padding: 40px;
+  border-radius: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.calculator label {
+  display: block;
+  margin: 20px 0;
+}
+
+.calculator input {
+  width: 100%;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.calculator .button {
+  text-align: center;
+}
+
+.selectInput {
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  overflow: hidden;
+}
+
+.selectInput select {
+  padding: 12px 24px;
+  width: 100%;
+  font-size: 21px;
+}
+
+.selectInput option {
+  list-style: none;
+  font-size: 18px;
+}
+
+.radioInput label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-bottom: 0.375em;
+}
+
+.radioInput input {
+  width: 20%;
 }
 
 .submitBtn {
   display: inline-block;
   border-radius: 4px;
   background-color: var(--tertiary);
+  color: var(--secondary);
   border: none;
-  text-align: center;
   font-size: 17px;
   padding: 16px;
-  width: 130px;
+  max-width: 200px;
+  width: 90%;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
   cursor: pointer;
-  margin: 5px;
+  margin-top: 5px;
 }
 
 .submitBtn :hover {
