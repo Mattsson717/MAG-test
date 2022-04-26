@@ -6,6 +6,8 @@
 // const productType = document.querySelector('#productType');
 // const publishedDate = document.querySelector('#isPublishedToday');
 // const priceCalculator = () => {
+
+//comment for PR
 const checkUserType = (userType) => {
   if (userType === 1) {
     return 5;
@@ -23,7 +25,7 @@ const productTypePrice = (productType) => {
 };
 
 const publishedToday = (publishedDate) => {
-  if (publishedDate.toDateString() == new Date().toDateString()) {
+  if (publishedDate.toDateString() === new Date().toDateString()) {
     return 10;
   }
 };
