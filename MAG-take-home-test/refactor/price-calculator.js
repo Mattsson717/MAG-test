@@ -25,7 +25,7 @@ const productTypePrice = (productType) => {
 };
 
 const publishedToday = (publishedDate) => {
-  if (publishedDate.toDateString() == new Date().toDateString()) {
+  if (publishedDate.toDateString() === new Date().toDateString()) {
     return 10;
   }
 };
