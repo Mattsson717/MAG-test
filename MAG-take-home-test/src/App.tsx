@@ -1,44 +1,50 @@
 import React, { useState, ChangeEvent } from 'react';
 import './App.scss';
 import Logo from './logo/Logo';
+
+// This file should be moved to the src-folder and imported.
 // import calculatePrice from '../refactor/calculatePrice';
 
 const App = () => {
-  const [user, setUser] = useState<string | undefined>('');
-  const [product, setProduct] = useState<string | undefined>('');
-  const [publishedToday, setPublishedToday] = useState<string | undefined>(
-    'no'
-  );
-  // const [price, setPrice] = useState<number | undefined>();
-  const [totalPrice, setTotalPrice] = useState<number | undefined>();
-
+  // 👍 creating constants for the values is a good pattern
   const productPrice: number = 100;
   const newProductPrice: number = 25;
   const oldProductPrice: number = 35;
   const companyRebate: number = 5;
   const publishedTodayRebate: number = 10;
-  // const priceInput: number = price;
+  const [user, setUser] = useState<string | undefined>('');
+  const [product, setProduct] = useState<string | undefined>('');
+  const [publishedToday, setPublishedToday] = useState<string | undefined>(
+    'no'
+  );
+   const [price, setPrice] = useState<number >(productPrice);
+  const [totalPrice, setTotalPrice] = useState<number | undefined>();
 
-  // const onChangeHandler = (e: ChangeEvent) => {
-  //   const newValue = (e.target as HTMLInputElement).valueAsNumber;
-  // };
+
+  const onChangeHandler = (e: ChangeEvent) => {
+    const newValue = (e.target as HTMLInputElement).valueAsNumber;
+    setPrice(newValue);
+  };
 
   // const submit = (e: React.FormEvent<HTMLInputElement>) => e.preventDefault();
 
+  // I would have liked you to use the (imported) calculatePrice function here.
   const calculatePrice = () => {
+    // The values (normal, new etc) are hardcoded in the function. It would have been better fi they were constants or enums (see my added priceCalculator-function for example).
+    // Having a long if-clause is also very hard to read and update if a new type was added.
     if (user === 'normal' && product === 'new') {
-      setTotalPrice(productPrice + newProductPrice - companyRebate);
+      setTotalPrice(price + newProductPrice - companyRebate);
     } else if (user === 'company' && product === 'old') {
-      setTotalPrice(productPrice + oldProductPrice - companyRebate);
+      setTotalPrice(price + oldProductPrice - companyRebate);
     } else if (user === 'normal' && product === 'new') {
-      setTotalPrice(productPrice + newProductPrice);
+      setTotalPrice(price + newProductPrice);
     } else {
-      setTotalPrice(productPrice + oldProductPrice);
+      setTotalPrice(price + oldProductPrice);
     }
 
     if (user === 'company' && product === 'new' && publishedToday === 'yes') {
       setTotalPrice(
-        productPrice + newProductPrice - publishedTodayRebate - companyRebate
+          price + newProductPrice - publishedTodayRebate - companyRebate
       );
     } else if (
       user === 'normal' &&
@@ -96,8 +102,11 @@ const App = () => {
             </label>
           </div>
 
-          {/* Can't get the onChangeHandler to recognize the setPrice */}
-          {/* <label>
+          {/*
+           Can't get the onChangeHandler to recognize the setPrice
+           Not sure what issue you had, but I fixed it by adding the setPrice function to the onChangeHandler
+           */}
+           <label>
           Price:
           <input
             value={price}
@@ -105,7 +114,7 @@ const App = () => {
             onChange={onChangeHandler}
             required
           />
-        </label> */}
+        </label>
           <div className='radioInput'>
             <label htmlFor='isPublishedToday'>
               Is the product published today?
