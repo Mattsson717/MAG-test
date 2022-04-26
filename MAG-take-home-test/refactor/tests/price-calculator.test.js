@@ -1,4 +1,4 @@
-import priceCalculator from '../../src/price-calculator';
+import priceCalculator from '../price-calculator';
 
 describe('priceCalculator', function () {
   describe('private user', function () {
